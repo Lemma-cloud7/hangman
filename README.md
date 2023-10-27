@@ -17,10 +17,18 @@ To run the Hangman Game on your local machine, follow these steps:
    git add milestone_2.py
    git commit -m "Added milestone_2.py with Hangman code"
    git push origin main
+## Editing a Markdown File with Git Bash
 
-3.## What I've Learned
-*Python programming, including working with lists, loops, and user input.
-*Version control with Git, including cloning repositories, committing changes, 
+1. **Open Git Bash**: Launch Git Bash on your local machine if you haven't already.
+
+2. **Navigate to Your Project Directory**: Use the `cd` command to navigate to the directory where your Markdown file is located. Replace `path/to/your/project/directory` with the actual path:
+
+   ```bash
+   cd path/to/your/project/directory
+
+## What I've Learned
+-Python programming, including working with lists, loops, and user input.
+-Version control with Git, including cloning repositories, committing changes, 
 and pushing code to remote repositories.
-*Understanding and implementing the rules and logic of the Hangman game.
+-Understanding and implementing the rules and logic of the Hangman game.
 Creating and maintaining project documentation using Markdown for README files.
