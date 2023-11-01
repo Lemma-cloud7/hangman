@@ -16,15 +16,26 @@ To run the Hangman Game on your local machine, follow these steps:
    git pull
 
 2. Follow the steps outlined in the lab
-   - git add milestone_2.py
-   - git commit -m "Added milestone_2.py with  Hangman code"
-   - git push origin main
+
+```
+git add milestone_2.py
+
+git commit -m "Added milestone_2.py with Hangman code"
+
+git push origin main
+```
+
 ##### Editing a Markdown File with Git Bash
 
-1. Use the `cd` command to navigate to the directory where your Markdown file is located. 
 
-2. nano Readme.md
+``` 
+Use the `cd` command to navigate to the directory where your Markdown file is located. 
+```
 
+Then use the following commands to edit and save changes using nano text editor:
+```
+nano Readme.md
+```
 **Usage**
 
 
