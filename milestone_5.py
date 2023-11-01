@@ -1,13 +1,12 @@
+
 import random
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
-        # Initialize attributes
         self.word_list = word_list
         self.num_lives = num_lives
         self.word = random.choice(word_list)
         self.word_guessed = ['_'] * len(self.word)
-        self.num_letters = len(set(self.word))
         self.list_of_guesses = []
 
     def display_word(self):
@@ -17,11 +16,12 @@ class Hangman:
         if letter not in self.list_of_guesses:
             self.list_of_guesses.append(letter)
             if letter in self.word:
+                print(f"Good guess! {letter} is in the word.")
                 for i, char in enumerate(self.word):
                     if char == letter:
                         self.word_guessed[i] = letter
-                        self.num_letters -= 1
             else:
+                print(f"Sorry, {letter} is not in the word.")
                 self.num_lives -= 1
 
     def is_game_over(self):
@@ -32,13 +32,6 @@ class Hangman:
         else:
             return False, ""
 
-    def check_guess(self, guess):
-        guess = guess.lower()
-        if guess in self.word:
-            print(f"Good guess! {guess} is in the word.")
-        else:
-            print(f"Sorry, {guess} is not in the word.")
-
     def ask_for_input(self):
         while True:
             guess = input("Guess a letter: ").lower()
@@ -47,44 +40,27 @@ class Hangman:
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
-                self.check_guess(guess)
                 self.guess_letter(guess)
                 break
 
-if __name__ == "__main__":
-    # Example usage:
-    word_list = ["apple", "banana", "kiwi", "grapes", "melon"]
-    hangman_game = Hangman(word_list)
-    
+def play_game(word_list):
+    game = Hangman(word_list)
+
     while True:
-        print("Word to guess:", hangman_game.display_word())
-        print("Number of lives:", hangman_game.num_lives)
-        print("List of guesses:", hangman_game.list_of_guesses)
-        
-        hangman_game.ask_for_input()
-        
-        game_over, message = hangman_game.is_game_over()
-        print("\n" + message)
-        
+        print("Word to guess:", game.display_word())
+        print("Number of lives:", game.num_lives)
+        print("List of guesses:", game.list_of_guesses)
+
+        game_over, message = game.is_game_over()
         if game_over:
+            print(message)
             play_again = input("Do you want to play again? (yes/no): ").lower()
             if play_again != "yes":
                 break
             else:
-                hangman_game = Hangman(word_list)
-def play_game(word_list):
-    num_lives = 5
-    game = Hangman(word_list, num_lives)
-
-    while True:
-        if game.num_lives == 0:
-            print("You lost!")
-            break
-        elif game.num_letters > 0:
-            game.ask_for_input()
+                game = Hangman(word_list)
         else:
-            print("Congratulations. You won the game!")
-            break
+            game.ask_for_input()
 
 if __name__ == "__main__":
     word_list = ["apple", "banana", "kiwi", "grapes", "melon"]
